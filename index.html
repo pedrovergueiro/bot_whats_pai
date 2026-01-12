@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Auto Responder Bot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .status {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #4CAF50;
+            border-radius: 50%;
+            margin-right: 10px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .features {
+            text-align: left;
+            margin: 30px 0;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+        
+        .feature::before {
+            content: "✅";
+            margin-right: 10px;
+        }
+        
+        .buttons {
+            margin-top: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            margin: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .api-info {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: left;
+        }
+        
+        .api-endpoint {
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 12px;
+            border-radius: 5px;
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🤖</div>
+        <h1>WhatsApp Auto Responder</h1>
+        <p class="subtitle">Bot serverless para respostas automáticas</p>
+        
+        <div class="status">
+            <span class="status-indicator"></span>
+            <strong>Status: </strong><span id="status">Verificando...</span>
+        </div>
+        
+        <div class="features">
+            <div class="feature">Resposta automática inteligente</div>
+            <div class="feature">Sistema anti-spam integrado</div>
+            <div class="feature">Desativação automática quando você responde</div>
+            <div class="feature">Reativação após 30 minutos</div>
+            <div class="feature">Hospedado na Vercel (sempre online)</div>
+        </div>
+        
+        <div class="buttons">
+            <a href="https://github.com/pedrovergueiro/bot_whats_pai" class="btn" target="_blank">
+                📚 Documentação
+            </a>
+            <a href="/api/status" class="btn" target="_blank">
+                📊 Status API
+            </a>
+        </div>
+        
+        <div class="api-info">
+            <h3>🔗 Endpoints Disponíveis:</h3>
+            <div class="api-endpoint">GET /api/status - Status do bot</div>
+            <div class="api-endpoint">GET /api/config - Configurações</div>
+            <div class="api-endpoint">POST /api/webhook - Webhook WhatsApp</div>
+        </div>
+    </div>
+
+    <script>
+        // Verificar status do bot
+        fetch('/api/status')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('status').textContent = 
+                    data.status === 'active' ? 'Online ✅' : 'Offline ❌';
+            })
+            .catch(error => {
+                document.getElementById('status').textContent = 'Erro ao verificar ❌';
+            });
+    </script>
+</body>
+</html>

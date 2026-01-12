@@ -1,20 +1,21 @@
 {
   "name": "whatsapp-auto-responder",
   "version": "1.0.0",
-  "description": "Bot de WhatsApp com resposta automática",
-  "main": "bot.js",
+  "description": "Bot de WhatsApp com resposta automática para Vercel",
+  "main": "api/webhook.js",
   "scripts": {
-    "start": "node bot.js",
-    "dev": "nodemon bot.js"
+    "start": "vercel dev",
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
   },
   "dependencies": {
-    "whatsapp-web.js": "^1.23.0",
-    "qrcode-terminal": "^0.12.0"
+    "axios": "^1.6.0",
+    "express": "^4.18.2"
   },
   "devDependencies": {
-    "nodemon": "^3.0.2"
+    "vercel": "^32.0.0"
   },
-  "keywords": ["whatsapp", "bot", "auto-responder"],
+  "keywords": ["whatsapp", "bot", "auto-responder", "vercel", "serverless"],
   "author": "",
   "license": "MIT"
 }

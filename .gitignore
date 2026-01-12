@@ -4,5 +4,7 @@ node_modules/
 session.json
 *.log
 .env
+.env.local
 .DS_Store
 Thumbs.db
+.vercel
