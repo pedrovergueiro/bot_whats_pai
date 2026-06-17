@@ -1,13 +1,8 @@
 # Bot WhatsApp — Projeto Pessoal
 
-Um botinho de WhatsApp que fiz pra ajudar meu pai com algumas automações do dia a dia. Não é nada sofisticado, mas foi um dos projetos mais especiais que já desenvolvi.
+Um bot de WhatsApp que fiz pra ajudar meu pai com algumas automações do dia a dia. Não é um projeto técnico avançado, mas foi especial de construir — e acabou sendo onde aprendi como bots de WhatsApp funcionam de verdade por baixo dos panos.
 
-Aprendi o básico de como bots de WhatsApp funcionam com Node.js e como montar uma mini API pra receber comandos.
-
-## O que aprendi
-- Como bots de WhatsApp funcionam por baixo dos panos
-- Node.js e JavaScript assíncrono na prática
-- Integração entre um bot e uma pequena API
+A `index.html` que está aqui é uma mini interface pra visualizar os logs do bot em tempo real.
 
 ## Stack
 JavaScript · Node.js
